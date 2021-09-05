@@ -1,11 +1,69 @@
 const express = require('express');
+  morgan = require('morgan');
 const app = express();
 
-const http = require('http');
+app.use(morgan('common'));
 
-http.createServer((request, response) => {
-  response.writeHead(200, {'Content-Type': 'text/plain'});
-  response.end('Welcome to my book club!\n');
-}).listen(8080);
 
-console.log('My first Node test server is running on Port 8080.');
+let topMovies = [
+  {
+    title: 'Movie 1,
+    author: 'Author 1'
+  },
+  {
+    title: 'Movie 2,
+    author: 'Author 2'
+  },
+  {
+    title: 'Movie 3,
+    author: 'Author 3'
+  },
+  {
+    title: 'Movie 4,
+    author: 'Author 4'
+  },
+  {
+    title: 'Movie 5,
+    author: 'Author 5'
+  },
+  {
+    title: 'Movie 6,
+    author: 'Author 6'
+  },
+  {
+    title: 'Movie 7,
+    author: 'Author 7'
+  },
+  {
+    title: 'Movie 8,
+    author: 'Author 8'
+  },
+  {
+    title: 'Movie 9,
+    author: 'Author 9'
+  },
+  {
+    title: 'Movie 10,
+    author: 'Author 10'
+  },
+];
+
+app.get('/', (req, res) => {
+  res.send('This is the list of my top 10 movies. ');
+});
+
+
+app.get('/movies', (req, res) => {
+  res.json(topMovies);
+});
+
+app.use(express.static('public'));
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('An unexpected error has occurred.');
+});
+
+app.listen(8080, () => {
+  console.log('My Movie App listening on port 8080.');
+});
