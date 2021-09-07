@@ -53,9 +53,7 @@ app.get('/', (req, res) => {
   res.send('This is the list of my top 10 movies. ');
 });
 
-app.get('/documentation', (req, res) => {
-  res.sendFile('public/index.html', { root: __dirname });
-});
+app.use('/documentation', express.static('public'));
 
 app.get('/movies', (req, res) => {
   res.json(topMovies);
