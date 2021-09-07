@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
   morgan = require('morgan');
 const app = express();
 
@@ -52,12 +53,13 @@ app.get('/', (req, res) => {
   res.send('This is the list of my top 10 movies. ');
 });
 
+app.get('/documentation', (req, res) => {
+  res.sendFile('public/index.html', { root: __dirname });
+});
 
 app.get('/movies', (req, res) => {
   res.json(topMovies);
 });
-
-app.use(express.static('public'));
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
