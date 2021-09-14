@@ -245,16 +245,19 @@ app.post('/movies', (req, res) => {
   }
 });
 
-//Delete a movie by name from the database
+//Delete a movie by id from the database
 
 app.delete('/movies/:id', (req, res) => {
   let movie = topMovies.find((movie) => {
     return movie.id === req.params.id });
+
   if (movie) {
-    movies = movies.filter((obj) => { return obj.id !== req.params.id });
+    movies = topMovies.filter((obj) => { return obj.id !== req.params.id });
     res.status(201).send('Movie ' + req.params.id + ' was deleted.');
   }
 });
+
+
 
 
 
