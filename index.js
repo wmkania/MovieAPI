@@ -14,7 +14,7 @@ let topMovies = [
     title: 'The Shawshank Redemption',
     description: 'Andy Dufresne, a successful banker, is arrested for the murders of his wife and her lover, and is sentenced to life imprisonment at the Shawshank prison. He becomes the most unconventional prisoner.',
     director: 'Frank Darabont',
-    genre: 'drama'
+    genre: 'drama',
   },
   {
     title: 'The Godfather',
@@ -101,45 +101,63 @@ let allDirectors = [
   {
     name: 'Frank Darabont',
     bio: 'French-American film director, screenwriter and producer of Hungarian descent.',
+    birthYear: 1959,
+    deathYear: 0,
   },
   {
     name: 'Francis Coppola',
     bio: 'American film director, producer, and screenwriter.',
+    birthYear: 1939,
+    deathYear: 0,
   },
   {
     name: 'Giuseppe Tornatore',
     bio: 'Italian film director and screenwriter.',
+    birthYear: 1956,
+    deathYear: 0,
   },
   {
     name: 'Stanley Kubrick',
     bio: 'American film director, producer, screenwriter, and photographer.',
+    birthYear: 1929,
+    deathYear: 1999,
   },
   {
     name: 'Lawrence Kasdan',
     bio: 'American director, screenwriter, and producer.',
-
+    birthYear: 1949,
+    deathYear: 0,
   },
   {
     name: 'Quentin Tarantino',
     bio: 'American film director, screenwriter, producer, author, film critic, and actor.',
+    birthYear: 1963,
+    deathYear: 0,
 
   },
   {
     name: 'Christopher Nolan',
     bio: 'ABritish-American film director, producer, and screenwriter.',
+    birthYear: 1970,
+    deathYear: 0,
   },
   {
     name: 'Lilly Wachowski',
     bio: 'American film director, producer, and screenwriter.',
-
+    birthYear: 1967,
+    deathYear: 0,
   },
   {
     name: 'Riddley Scott',
     bio: 'English film director and producer.',
+    birthYear: 1937,
+    deathYear: 0,
   },
   {
     name: 'James Cameron',
     bio: 'Canadian filmmaker best known for making science fiction and epic films.',
+    birthYear: 1954,
+    deathYear: 0,
   },
 ];
 
@@ -161,9 +179,6 @@ app.get('/movies', (req, res) => {
   res.json(topMovies);
 });
 
-app.get('/genres', (req, res) => {
-  res.json(allGenres);
-});
 
 //Gets data about a single movie by title
 
@@ -202,6 +217,19 @@ app.get('/directors/:name', (req, res) => {
    }));
 });
 
+//Update data about a director by name
+
+app.put('/directors/:name/', (req, res) => {
+  let director = directors.find((director) => { return director.name === req.params.name });
+
+  if (director) {
+    director.deathYear[req.params.class] = parseInt(req.params.grade);
+    res.status(201).send('Student ' + req.params.name + ' was assigned a grade of ' + req.params.grade + ' in ' + req.params.class);
+  } else {
+    res.status(404).send('Student with the name ' + req.params.name + ' was not found.');
+  }
+});
+
 
 // Add a new movie
 
@@ -231,36 +259,23 @@ app.delete('/movies/:id', (req, res) => {
 });
 
 
-// Gets a list of all users
 
-app.get('/users', (req, res) => {
- Users.find()
- .then((users) => {
-   res.status(201).json(users);
- })
- .catch((err) => {
-   console.error(err);
-   res.status(500).send('Error: ' + err);
- });
-});
+// Gets a list of all users
 
 
 // Gets data about a single user by name
 
-app.get('/users/:Name', (req, res) => {
-   Users.findOne({Name: req.params.Name})
-   .then ((user) => {
-     res.json(user);
-   })
-   .catch((err) => {
-     console.error(err);
-     res.status(500).send('Error: ' + err);
-   });
- });
+
+// Add a new user
 
 
-   // Add a new user
+// Delete an existing user
 
+
+// Add a movie to Favourites list by ID
+
+
+// Remove a movie from Favourites list by ID
 
 
 // Error handling function.
