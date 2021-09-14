@@ -11,7 +11,7 @@
 
 <h1>Movie API</h1>
 
-<p>Essential Features</p>
+<h3><u>Essential Features</u></h3>
 
 <ul>
 <li> Return a list of ALL movies to the user </li>
@@ -25,6 +25,157 @@ single movie by title to the user</li>
 <li> Allow users to remove a movie from their list of favorites</li>
 <li> Allow existing users to deregister</li>
 </ul>
+
+
+<h3><u>End points</u></h3>
+
+	<table>
+	    <thead>
+	      <tr>
+	        <th>Business Logic</th>
+	        <th>URL</th>
+	        <th>HTTP Method</th>
+	        <th>Request body data format</th>
+	        <th>Response body data format</th>
+	      </tr>
+	    </thead>
+			<tbody>
+		       <tr>
+		         <td>Get a list of movies</td>
+		         <td>/movies</td>
+		         <td>GET</td>
+		         <td>None</td>
+		          <td>A JSON object holding data about all the movies</td>
+		        </tr>
+						 <tr>
+							 <td>Get data about a single movie by title</td>
+				<td>/movies/[Title]</td>
+				<td>GET</td>
+				<td>None</td>
+				<td>
+				 A JSON object holding data about a single movie,<br>
+				 Example:<br>
+				 {<br>
+					 id: 1,<br>
+					 title: "Titanic",<br>
+					 year: 1997<br>
+				 }
+				</td>
+			</tr>
+			<tr>
+				<td>Get data about a genre by name of genre</td>
+ <td>/genre/[Name]</td>
+ <td>GET</td>
+ <td>None</td>
+ <td>
+	A JSON object holding data about a genre,<br>
+	Example:<br>
+	{<br>
+		id: 1,<br>
+		title: "thriller"<br>
+		description: "thriller description"<br>
+	}
+ </td>
+</tr>
+<tr>
+	<td>Get data about a director by name</td>
+<td>/directors/[Name]</td>
+<td>GET</td>
+<td>None</td>
+<td>
+A JSON object holding data about a director,<br>
+Example:<br>
+{<br>
+id: 1,<br>
+name: "John Smith"<br>
+name: "example bio text"<br>
+Birth year: 1960,<br>
+Death year: 2000,<br>
+}
+</td>
+</tr>
+
+ 			<tr>
+				<td>Get a list of users</td>
+				         <td>/users</td>
+				         <td>GET</td>
+				         <td>None</td>
+				         <td>A JSON object holding data about all the users</td>
+				       </tr>
+				       <tr>
+				         <td>Get data about a single user by name</td>
+				         <td>/users/[Name]</td>
+				         <td>GET</td>
+				         <td>None</td>
+				         <td>
+				           A JSON object holding data about a single user,<br>
+				           Example:<br>
+				           {<br>
+				             Name: "testuser1",<br>
+				             Password: "testuser123",<br>
+				             Mail: "testuser1@gmail.com"<br>
+				           }
+				         </td>
+				       </tr>
+				       <tr>
+				         <td>Add an user</td>
+				         <td>/users</td>
+								 <td>POST</td>
+				<td>
+					A JSON object holding data about the user to add,<br>
+					Example:<br>
+					{<br>    Name: "testuser1",<br>
+             Password: "testuser123",<br>
+             Mail: "testuser1@gmail.com"<br>
+           }
+         </td>
+
+				   <td>
+						 A JSON object holding data about the user to add,<br>
+					Example:<br>
+					{<br>
+						Name: "testuser1",<br>
+			Password: "testuser123",<br>
+			Mail: "testuser1@gmail.com",<br>
+			FavoriteMovie: [],<br>
+			__v: 0<br>
+		}
+	</td>
+</tr>
+	       <tr>
+					 <td>Update a certain user</td>
+					         <td>/users/[Name]</td>
+					         <td>PUT</td>
+					         <td>None</td>
+
+									 <td>A text message indicating wheter the user was updated</td>
+					        </tr>
+					        <tr>
+					          <td>Delete a user</td>
+					          <td>/movies/[Name]</td>
+					          <td>DELETE</td>
+					          <td>None</td>
+					          <td>A text message indicating whether the user was successfully removed</td>
+					        </tr>
+									<tr>
+										<td>Add a movie by ID to the favorite list of an user</td>
+										<td>/users/[Name]/movies/[MovieID]</td>
+										<td>POST</td>
+										<td>None</td>
+										<td>A JSON file with MovieID as value of FavoriteMovies key</td>
+										       </tr>
+					        <tr>
+					          <td>Remove a movie by ID from the FavoriteMovies of an user</td>
+					          <td>/users/[Name]/movies/[MovieID]</td>
+					          <td>DELETE</td>
+					          <td>None</td>
+					          <td>A text message indicating whether the movie was successfully removed</td>
+					        </tr>
+					      </tbody>
+
+	</table>
+
+
 
 </body>
 </html>
