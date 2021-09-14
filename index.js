@@ -235,7 +235,7 @@ app.put('/directors/:name/:deathYear', (req, res) => {
 app.post('/movies', (req, res) => {
   let newMovie = req.body;
 
-  if (!newStudent.title) {
+  if (!newMovie.title) {
     const message = 'Missing name in request body';
     res.status(400).send(message);
   } else {
