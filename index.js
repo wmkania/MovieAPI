@@ -114,7 +114,7 @@ let allDirectors = [
     name: 'Giuseppe Tornatore',
     bio: 'Italian film director and screenwriter.',
     birthYear: 1956,
-    deathYear: 0,
+    deathYear: '',
   },
   {
     name: 'Stanley Kubrick',
@@ -224,7 +224,7 @@ app.put('/directors/:name/:deathYear', (req, res) => {
   return director.name === req.params.name });
 
   if (director) {
-    director[req.params.deathYear] = parseInt(req.params.deathYear);
+    director.deathYear[req.params.deathYear] = parseInt(req.params.deathYear);
     res.status(201).send('Director ' + req.params.name + ' has died in ' + req.params.deathYear);
   } else {
     res.status(404).send('Director with the name ' + req.params.name + ' was not found.');
