@@ -240,7 +240,7 @@ app.post('/movies', (req, res) => {
     res.status(400).send(message);
   } else {
     newMovie.id = uuid.v4();
-    topMovies.push(newMovie;
+    topMovies.push(newMovie);
     res.status(201).send(newMovie);
   }
 });
