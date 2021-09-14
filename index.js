@@ -232,19 +232,18 @@ app.put('/directors/:name/:deathYear', (req, res) => {
 
 // Add a new movie to the database
 
-app.post('/movies', (req, res) =>
-   let newMovie = req.body;
+app.post('/movies', (req, res) => {
+  let newMovie = req.body;
 
-   if (!newMovie.title) {
-     const message = 'Missing movie title in request body';
-     res.status(400).send(message);
-   } else {
-     newMovie.id = uuid.v4();
-     topMovies.push(newMovie);
-     res.status(201).send(newMovie);
-   }
- });
-
+  if (!newStudent.title) {
+    const message = 'Missing name in request body';
+    res.status(400).send(message);
+  } else {
+    newMovie.id = uuid.v4();
+    topMovies.push(newMovie;
+    res.status(201).send(newMovie);
+  }
+});
 
 //Delete a movie by name from the database
 
