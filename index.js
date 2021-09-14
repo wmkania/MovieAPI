@@ -8,45 +8,65 @@ app.use(morgan('common'));
 
 let topMovies = [
   {
-    title: 'Movie 1',
-    director: 'Author 1'
+    title: 'The Shawshank Redemption',
+    description: 'example text',
+    director: 'Frank Darabont',
+    genre: 'drama'
   },
   {
-    title: 'Movie 2',
-    director: 'Author 2'
+    title: 'The Godfather',
+    description: 'example text',
+    director: 'Francis Coppola',
+    genre: 'drama'
   },
   {
-    title: 'Movie 3',
-    director: 'Author 3'
+    title: 'Malena',
+    description: 'example text',
+    director: 'Giuseppe Tornatore',
+    genre: 'drama'
   },
   {
-    title: 'Movie 4',
-    director: 'Author 4'
+    title: 'The Shining',
+    description: 'example text',
+    director: 'Stanley Kubrick',
+    genre: 'horror'
   },
   {
-    title: 'Movie 5',
-    director: 'Author 5'
+    title: 'Dreamcatcher',
+    description: 'example text',
+    director: 'Lawrence Kasdan',
+    genre: 'horror'
   },
   {
-    title: 'Movie 6',
-    director: 'Author 6'
+    title: 'Pulp Fiction',
+    description: 'example text',
+    director: 'Quentin Tarantino',
+    genre: 'comedy'
   },
   {
-    title: 'Movie 7',
-    director: 'Author 7'
+    title: 'Inception',
+    description: 'example text',
+    director: 'Christopher Nolan',
+    genre: 'thriller'
   },
   {
-    title: 'Movie 8',
-    director: 'Author 8'
+    title: 'The Matrix',
+    description: 'example text',
+    director: 'Lilly Wachowski',
+    genre: 'science fiction'
   },
   {
-    title: 'Movie 9',
-    director: 'Author 9'
+    title: 'Alien',
+    description: 'example text',
+    director: 'Ridley Scott',
+    genre: 'science fiction'
   },
   {
-    title: 'Movie 10',
-    director: 'Author 10'
-  }
+    title: 'Titanic',
+    description: 'example text',
+    director: 'James Cameron',
+    genre: 'drama'
+  },
 ];
 
 app.get('/', (req, res) => {
