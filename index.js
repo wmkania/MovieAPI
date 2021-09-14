@@ -217,21 +217,20 @@ app.get('/directors/:name', (req, res) => {
    }));
 });
 
-//Update data about a director by name
+// Update death year of a director by name
 
-app.put('/directors/:name/', (req, res) => {
+app.put('/directors/:name/:deathYear', (req, res) => {
   let director = directors.find((director) => { return director.name === req.params.name });
 
   if (director) {
-    director.deathYear[req.params.class] = parseInt(req.params.grade);
-    res.status(201).send('Student ' + req.params.name + ' was assigned a grade of ' + req.params.grade + ' in ' + req.params.class);
+    director.deathYear[req.params.deathYear] = parseInt(req.params.deathYear);
+    res.status(201).send('Director ' + req.params.name + ' has died in ' + req.params.deathYear);
   } else {
-    res.status(404).send('Student with the name ' + req.params.name + ' was not found.');
+    res.status(404).send('Director with the name ' + req.params.name + ' was not found.');
   }
 });
 
-
-// Add a new movie
+// Add a new movie to the database
 
 app.post('/movies', (req, res) => {
    let newMovie = req.body;
@@ -247,7 +246,7 @@ app.post('/movies', (req, res) => {
  });
 
 
-//Delete a movie by name
+//Delete a movie by name from the database
 
 app.delete('/movies/:id', (req, res) => {
   let movie = topMovies.find((movie) => {
