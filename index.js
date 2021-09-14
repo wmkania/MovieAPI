@@ -232,7 +232,7 @@ app.put('/directors/:name/:deathYear', (req, res) => {
 
 // Add a new movie to the database
 
-app.post('/movies', (req, res) => {
+app.post('/movies', (req, res) =>
    let newMovie = req.body;
 
    if (!newMovie.title) {
