@@ -9,43 +9,43 @@ app.use(morgan('common'));
 let topMovies = [
   {
     title: 'Movie 1',
-    author: 'Author 1'
+    director: 'Author 1'
   },
   {
     title: 'Movie 2',
-    author: 'Author 2'
+    director: 'Author 2'
   },
   {
     title: 'Movie 3',
-    author: 'Author 3'
+    director: 'Author 3'
   },
   {
     title: 'Movie 4',
-    author: 'Author 4'
+    director: 'Author 4'
   },
   {
     title: 'Movie 5',
-    author: 'Author 5'
+    director: 'Author 5'
   },
   {
     title: 'Movie 6',
-    author: 'Author 6'
+    director: 'Author 6'
   },
   {
     title: 'Movie 7',
-    author: 'Author 7'
+    director: 'Author 7'
   },
   {
     title: 'Movie 8',
-    author: 'Author 8'
+    director: 'Author 8'
   },
   {
     title: 'Movie 9',
-    author: 'Author 9'
+    director: 'Author 9'
   },
   {
     title: 'Movie 10',
-    author: 'Author 10'
+    director: 'Author 10'
   }
 ];
 
