@@ -220,10 +220,11 @@ app.get('/directors/:name', (req, res) => {
 // Update death year of a director by name
 
 app.put('/directors/:name/:deathYear', (req, res) => {
-  let director = directors.find((director) => { return director.name === req.params.name });
+  let director = allDirectors.find((director) => {
+  return director.name === req.params.name });
 
   if (director) {
-    director.deathYear[req.params.deathYear] = parseInt(req.params.deathYear);
+    director[req.params.deathYear] = parseInt(req.params.deathYear);
     res.status(201).send('Director ' + req.params.name + ' has died in ' + req.params.deathYear);
   } else {
     res.status(404).send('Director with the name ' + req.params.name + ' was not found.');
@@ -234,7 +235,6 @@ app.put('/directors/:name/:deathYear', (req, res) => {
 
 app.post('/movies', (req, res) => {
   let newMovie = req.body;
-
   if (!newMovie.title) {
     const message = 'Missing name in request body';
     res.status(400).send(message);
