@@ -12,64 +12,64 @@ app.use(bodyParser.json());
 let topMovies = [
   {
     title: 'The Shawshank Redemption',
-    description: 'example text',
+    description: 'Andy Dufresne, a successful banker, is arrested for the murders of his wife and her lover, and is sentenced to life imprisonment at the Shawshank prison. He becomes the most unconventional prisoner.',
     director: 'Frank Darabont',
     genre: 'drama'
   },
   {
     title: 'The Godfather',
-    description: 'example text',
+    description: 'Don Vito Corleone, head of a mafia family, decides to hand over his empire to his youngest son Michael.',
     director: 'Francis Coppola',
     genre: 'drama'
   },
   {
     title: 'Malena',
-    description: 'example text',
+    description: 'In Sicily, during the Second World War, a teenage boy gets smitten by Malena, a sensual woman living in a small town.',
     director: 'Giuseppe Tornatore',
     genre: 'drama'
   },
   {
     title: 'The Shining',
-    description: 'example text',
+    description: 'Jack and his family move into an isolated hotel with a violent past.',
     director: 'Stanley Kubrick',
     genre: 'horror'
   },
   {
     title: 'Dreamcatcher',
-    description: 'example text',
+    description: 'Jonesy, Henry, Pete and Beaver have a special secret and are equipped to communicate using telepathy.',
     director: 'Lawrence Kasdan',
     genre: 'horror'
   },
   {
     title: 'Pulp Fiction',
-    description: 'example text',
+    description: 'In the realm of underworld, a series of incidents intertwines the lives of two Los Angeles mobsters and small-time criminals.',
     director: 'Quentin Tarantino',
     genre: 'comedy'
   },
   {
     title: 'Inception',
-    description: 'example text',
+    description: 'Cobb steals information from his targets by entering their dreams.',
     director: 'Christopher Nolan',
     genre: 'thriller'
   },
   {
     title: 'The Matrix',
-    description: 'example text',
+    description: 'Thomas Anderson, a computer programmer, is led to fight an underground war against powerful computers who have constructed his entire reality with a system called the Matrix.',
     director: 'Lilly Wachowski',
     genre: 'science fiction'
   },
   {
     title: 'Alien',
-    description: 'example text',
+    description: 'The crew of a spacecraft, Nostromo, intercept a distress signal from a planet and set out to investigate it.',
     director: 'Ridley Scott',
     genre: 'science fiction'
   },
   {
     title: 'Titanic',
-    description: 'example text',
+    description: 'Seventeen-year-old Rose hails from an aristocratic family and is set to be married.',
     director: 'James Cameron',
     genre: 'drama'
-  },
+  }
 ];
 
 
@@ -93,6 +93,53 @@ let allGenres = [
   {
     name: 'thriller',
     description: 'Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety.',
+  }
+];
+
+
+let allDirectors = [
+  {
+    name: 'Frank Darabont',
+    bio: 'French-American film director, screenwriter and producer of Hungarian descent.',
+  },
+  {
+    name: 'Francis Coppola',
+    bio: 'American film director, producer, and screenwriter.',
+  },
+  {
+    name: 'Giuseppe Tornatore',
+    bio: 'Italian film director and screenwriter.',
+  },
+  {
+    name: 'Stanley Kubrick',
+    bio: 'American film director, producer, screenwriter, and photographer.',
+  },
+  {
+    name: 'Lawrence Kasdan',
+    bio: 'American director, screenwriter, and producer.',
+
+  },
+  {
+    name: 'Quentin Tarantino',
+    bio: 'American film director, screenwriter, producer, author, film critic, and actor.',
+
+  },
+  {
+    name: 'Christopher Nolan',
+    bio: 'ABritish-American film director, producer, and screenwriter.',
+  },
+  {
+    name: 'Lilly Wachowski',
+    bio: 'American film director, producer, and screenwriter.',
+
+  },
+  {
+    name: 'Riddley Scott',
+    bio: 'English film director and producer.',
+  },
+  {
+    name: 'James Cameron',
+    bio: 'Canadian filmmaker best known for making science fiction and epic films.',
   },
 ];
 
@@ -126,10 +173,31 @@ app.get('/movies/:title', (req, res) => {
    }));
 });
 
+
+//Gets a list of all genres in JSON format
+
+app.get('/genres', (req, res) => {
+  res.json(allGenres);
+});
+
 //Gets data about a genre by genre name
 
 app.get('/genres/:name', (req, res) => {
    res.json(allGenres.find((genre) => {
+     return genre.name === req.params.name
+   }));
+});
+
+//Gets a list of all directors in JSON format
+
+app.get('/directors', (req, res) => {
+  res.json(allDirectors);
+});
+
+//Gets data about a director by name
+
+app.get('/directors/:name', (req, res) => {
+   res.json(allDirectors.find((genre) => {
      return genre.name === req.params.name
    }));
 });
