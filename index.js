@@ -53,10 +53,10 @@ let topMovies = [
     genre: 'thriller'
   },
   {
-    title: 'The Matrix',
-    description: 'Thomas Anderson, a computer programmer, is led to fight an underground war against powerful computers who have constructed his entire reality with a system called the Matrix.',
-    director: 'Lilly Wachowski',
-    genre: 'science fiction'
+    title: 'Cinema Paradiso',
+    description: 'Young Salvatore Di Vita discovers the perfect escape from life in his war-torn Sicilian village: the Cinema Paradiso movie house, where projectionist Alfredo instills in the boy a deep love of films.',
+    director: 'Giuseppe Tornatore',
+    genre: 'drama'
   },
   {
     title: 'Alien',
@@ -114,7 +114,7 @@ let allDirectors = [
     name: 'Giuseppe Tornatore',
     bio: 'Italian film director and screenwriter.',
     birthYear: 1956,
-    deathYear: 2000,
+    deathYear: 0,
   },
   {
     name: 'Stanley Kubrick',
@@ -122,6 +122,7 @@ let allDirectors = [
     birthYear: 1929,
     deathYear: 1999,
   },
+
   {
     name: 'Lawrence Kasdan',
     bio: 'American director, screenwriter, and producer.',
@@ -137,16 +138,11 @@ let allDirectors = [
   },
   {
     name: 'Christopher Nolan',
-    bio: 'ABritish-American film director, producer, and screenwriter.',
+    bio: 'British-American film director, producer, and screenwriter.',
     birthYear: 1970,
     deathYear: 0,
   },
-  {
-    name: 'Lilly Wachowski',
-    bio: 'American film director, producer, and screenwriter.',
-    birthYear: 1967,
-    deathYear: 0,
-  },
+
   {
     name: 'Riddley Scott',
     bio: 'English film director and producer.',
