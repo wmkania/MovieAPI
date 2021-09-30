@@ -88,8 +88,8 @@ app.get('/users', (req, res) => {
 
 // Get movie info by title
 app.get('/movies/:Title', (req, res) => {
-  Movies.findOne({ Username: req.params.Title})
-    .then((user) => {
+  Movies.findOne({ Title: req.params.Title})
+    .then((movie) => {
       res.json(movie);
     })
     .catch((err) => {
@@ -101,7 +101,7 @@ app.get('/movies/:Title', (req, res) => {
 
 // Get director info by name
 app.get('/directors/:Name', (req, res) => {
-  Directors.findOne({ Username: req.params.Name})
+  Directors.findOne({ Name: req.params.Name})
     .then((director) => {
       res.json(director);
     })
@@ -113,7 +113,7 @@ app.get('/directors/:Name', (req, res) => {
 
 // Get genre info by name
 app.get('/genres/:Name', (req, res) => {
-  Genres.findOne({ Username: req.params.Genre})
+  Genres.findOne({ Name: req.params.Name})
     .then((genre) => {
       res.json(genre);
     })
