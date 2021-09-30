@@ -3,6 +3,8 @@ const Models = require('./models.js');
 
 const Movies = Models.Movie;
 const Users = Models.User;
+const Directors = Models.Directors;
+const Genres = Models.Genres;
 
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -18,154 +20,6 @@ app.use(morgan('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-let topMovies = [
-  {
-    title: 'The Shawshank Redemption',
-    description: 'Andy Dufresne, a successful banker, is arrested for the murders of his wife and her lover, and is sentenced to life imprisonment at the Shawshank prison. He becomes the most unconventional prisoner.',
-    director: 'Frank Darabont',
-    genre: 'drama',
-  },
-  {
-    title: 'The Godfather',
-    description: 'Don Vito Corleone, head of a mafia family, decides to hand over his empire to his youngest son Michael.',
-    director: 'Francis Coppola',
-    genre: 'drama'
-  },
-  {
-    title: 'Malena',
-    description: 'In Sicily, during the Second World War, a teenage boy gets smitten by Malena, a sensual woman living in a small town.',
-    director: 'Giuseppe Tornatore',
-    genre: 'drama'
-  },
-  {
-    title: 'The Shining',
-    description: 'Jack and his family move into an isolated hotel with a violent past.',
-    director: 'Stanley Kubrick',
-    genre: 'horror'
-  },
-  {
-    title: 'Dreamcatcher',
-    description: 'Jonesy, Henry, Pete and Beaver have a special secret and are equipped to communicate using telepathy.',
-    director: 'Lawrence Kasdan',
-    genre: 'horror'
-  },
-  {
-    title: 'Pulp Fiction',
-    description: 'In the realm of underworld, a series of incidents intertwines the lives of two Los Angeles mobsters and small-time criminals.',
-    director: 'Quentin Tarantino',
-    genre: 'comedy'
-  },
-  {
-    title: 'Inception',
-    description: 'Cobb steals information from his targets by entering their dreams.',
-    director: 'Christopher Nolan',
-    genre: 'thriller'
-  },
-  {
-    title: 'Cinema Paradiso',
-    description: 'Young Salvatore Di Vita discovers the perfect escape from life in his war-torn Sicilian village: the Cinema Paradiso movie house, where projectionist Alfredo instills in the boy a deep love of films.',
-    director: 'Giuseppe Tornatore',
-    genre: 'drama'
-  },
-  {
-    title: 'Alien',
-    description: 'The crew of a spacecraft, Nostromo, intercept a distress signal from a planet and set out to investigate it.',
-    director: 'Ridley Scott',
-    genre: 'science fiction'
-  },
-  {
-    title: 'Titanic',
-    description: 'Seventeen-year-old Rose hails from an aristocratic family and is set to be married.',
-    director: 'James Cameron',
-    genre: 'drama'
-  }
-];
-
-
-let allGenres = [
-  {
-    name: 'drama',
-    description: 'The drama genre features stories with high stakes and a lot of conflicts.',
-  },
-  {
-    name: 'science fiction',
-    description: 'Science fiction is a genre of speculative fiction that typically deals with imaginative and futuristic concepts.',
-  },
-  {
-    name: 'horror',
-    description: 'Horror is a genre of fiction which is intended to, or has the capacity to frighten, scare, disgust, or startle its viewers.',
-  },
-  {
-    name: 'comedy',
-    description: 'A comedy film is a category of film in which the main emphasis is on humor.',
-  },
-  {
-    name: 'thriller',
-    description: 'Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety.',
-  }
-];
-
-
-let allDirectors = [
-  {
-    name: 'Frank Darabont',
-    bio: 'French-American film director, screenwriter and producer of Hungarian descent.',
-    birthYear: 1959,
-    deathYear: 0,
-  },
-  {
-    name: 'Francis Coppola',
-    bio: 'American film director, producer, and screenwriter.',
-    birthYear: 1939,
-    deathYear: 0,
-  },
-  {
-    name: 'Giuseppe Tornatore',
-    bio: 'Italian film director and screenwriter.',
-    birthYear: 1956,
-    deathYear: 0,
-  },
-  {
-    name: 'Stanley Kubrick',
-    bio: 'American film director, producer, screenwriter, and photographer.',
-    birthYear: 1929,
-    deathYear: 1999,
-  },
-
-  {
-    name: 'Lawrence Kasdan',
-    bio: 'American director, screenwriter, and producer.',
-    birthYear: 1949,
-    deathYear: 0,
-  },
-  {
-    name: 'Quentin Tarantino',
-    bio: 'American film director, screenwriter, producer, author, film critic, and actor.',
-    birthYear: 1963,
-    deathYear: 0,
-
-  },
-  {
-    name: 'Christopher Nolan',
-    bio: 'British-American film director, producer, and screenwriter.',
-    birthYear: 1970,
-    deathYear: 0,
-  },
-
-  {
-    name: 'Riddley Scott',
-    bio: 'English film director and producer.',
-    birthYear: 1937,
-    deathYear: 0,
-  },
-  {
-    name: 'James Cameron',
-    bio: 'Canadian filmmaker best known for making science fiction and epic films.',
-    birthYear: 1954,
-    deathYear: 0,
-  },
-];
-
 
 
 // Routes the main Welcome page.
@@ -179,12 +33,6 @@ app.get('/', (req, res) => {
 app.use('/documentation', express.static('public'));
 
 
-//Gets a list of all movies in JSON format
-
-app.get('/movies', (req, res) => {
-  res.json(topMovies);
-});
-
 
 //Gets data about a single movie by title
 
@@ -195,11 +43,6 @@ app.get('/movies/:title', (req, res) => {
 });
 
 
-//Gets a list of all genres in JSON format
-
-app.get('/genres', (req, res) => {
-  res.json(allGenres);
-});
 
 //Gets data about a genre by genre name
 
@@ -209,11 +52,6 @@ app.get('/genres/:name', (req, res) => {
    }));
 });
 
-//Gets a list of all directors in JSON format
-
-app.get('/directors', (req, res) => {
-  res.json(allDirectors);
-});
 
 //Gets data about a director by name
 
@@ -225,7 +63,7 @@ app.get('/directors/:name', (req, res) => {
 
 // Update death year of a director by name
 
-app.put('/directors/:name/:deathYear', (req, res) => {
+app.put('/directors/:name/:Death', (req, res) => {
   let director = allDirectors.find((director) => {
   return director.name === req.params.name });
 
@@ -261,6 +99,46 @@ app.delete('/movies/:id', (req, res) => {
     movies = topMovies.filter((obj) => { return obj.id !== req.params.id });
     res.status(201).send('Movie ' + req.params.id + ' was deleted.');
   }
+});
+
+
+// Gets a list of all movies
+
+app.get('/movies', (req, res) => {
+  Movies.find()
+    .then((movies) => {
+      res.status(201).json(movies);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+});
+
+// Gets a list of all directors
+
+app.get('/directors', (req, res) => {
+  Directors.find()
+    .then((directors) => {
+      res.status(201).json(directors);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+});
+
+// Gets a list of all genres
+
+app.get('/genres', (req, res) => {
+  Genres.find()
+    .then((genres) => {
+      res.status(201).json(genres);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
 });
 
 
