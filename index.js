@@ -27,11 +27,9 @@ app.get('/', (req, res) => {
   res.send('This is the list of my top 10 movies. ');
 });
 
-
 //Routes API Documentation page with Endpoint list.
 
 app.use('/documentation', express.static('public'));
-
 
 
 // Gets a list of all movies
@@ -86,6 +84,20 @@ app.get('/users', (req, res) => {
       res.status(500).send('Error: ' + err);
     });
 });
+
+
+// Get movie info by username
+app.get('/users/:Title', (req, res) => {
+  Movies.findOne({ Username: req.params.Title})
+    .then((user) => {
+      res.json(movie);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+});
+
 
 
 // Get user info by username
