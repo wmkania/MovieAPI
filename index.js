@@ -34,77 +34,6 @@ app.use('/documentation', express.static('public'));
 
 
 
-//Gets data about a single movie by title
-
-app.get('/movies/:title', (req, res) => {
-   res.json(topMovies.find((movie) => {
-     return movie.title === req.params.title
-   }));
-});
-
-
-
-//Gets data about a genre by genre name
-
-app.get('/genres/:name', (req, res) => {
-   res.json(allGenres.find((genre) => {
-     return genre.name === req.params.name
-   }));
-});
-
-
-//Gets data about a director by name
-
-app.get('/directors/:name', (req, res) => {
-   res.json(allDirectors.find((genre) => {
-     return genre.name === req.params.name
-   }));
-});
-
-// Update death year of a director by name
-
-app.put('/directors/:name/:Death', (req, res) => {
-  let director = allDirectors.find((director) => {
-  return director.name === req.params.name });
-
-  if (director) {
-    director.Death= parseInt(req.params.Death);
-    res.status(201).send('Director ' + req.params.name + ' has died in ' + req.params.deathYear);
-  } else {
-    res.status(404).send('Director with the name ' + req.params.name + ' was not found.');
-  }
-});
-
-
-
-
-// Add a new movie to the database
-
-app.post('/movies', (req, res) => {
-  let newMovie = req.body;
-  if (!newMovie.title) {
-    const message = 'Missing name in request body';
-    res.status(400).send(message);
-  } else {
-    newMovie.id = uuid.v4();
-    topMovies.push(newMovie);
-    res.status(201).send(newMovie);
-  }
-});
-
-//Delete a movie by id from the database
-
-app.delete('/movies/:id', (req, res) => {
-  let movie = topMovies.find((movie) => {
-    return movie.id === req.params.id });
-
-  if (movie) {
-    movies = topMovies.filter((obj) => { return obj.id !== req.params.id });
-    res.status(201).send('Movie ' + req.params.id + ' was deleted.');
-  }
-});
-
-
 // Gets a list of all movies
 
 app.get('/movies', (req, res) => {
@@ -199,8 +128,8 @@ app.post('/users', (req, res) => {
     });
 });
 
-// Update a user's info, by username
 
+// Update a user's info, by username
 
 app.put('/users/:Username', (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, { $set:
