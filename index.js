@@ -87,7 +87,7 @@ app.get('/users', (req, res) => {
 
 
 // Get movie info by title
-app.get('/users/:Title', (req, res) => {
+app.get('/movies/:Title', (req, res) => {
   Movies.findOne({ Username: req.params.Title})
     .then((user) => {
       res.json(movie);
