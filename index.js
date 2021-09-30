@@ -3,8 +3,8 @@ const Models = require('./models.js');
 
 const Movies = Models.Movie;
 const Users = Models.User;
-const Directors = Models.Directors;
-const Genres = Models.Genres;
+const Directors = Models.Director;
+const Genres = Models.Genre;
 
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -68,12 +68,15 @@ app.put('/directors/:name/:Death', (req, res) => {
   return director.name === req.params.name });
 
   if (director) {
-    director.deathYear= parseInt(req.params.deathYear);
+    director.Death= parseInt(req.params.Death);
     res.status(201).send('Director ' + req.params.name + ' has died in ' + req.params.deathYear);
   } else {
     res.status(404).send('Director with the name ' + req.params.name + ' was not found.');
   }
 });
+
+
+
 
 // Add a new movie to the database
 
@@ -156,7 +159,7 @@ app.get('/users', (req, res) => {
 });
 
 
-// Get a user by username
+// Get user info by username
 app.get('/users/:Username', (req, res) => {
   Users.findOne({ Username: req.params.Username })
     .then((user) => {
@@ -198,6 +201,7 @@ app.post('/users', (req, res) => {
 
 // Update a user's info, by username
 
+
 app.put('/users/:Username', (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, { $set:
     {
@@ -218,7 +222,6 @@ app.put('/users/:Username', (req, res) => {
   });
 });
 
-
 // Delete an existing user
 
 app.delete('/users/:Username', (req, res) => {
@@ -237,10 +240,11 @@ app.delete('/users/:Username', (req, res) => {
 });
 
 
-// Add a movie to a user's list of favorites
+// Add a movie to a user's list of favourites
+
 app.post('/users/:Username/movies/:MovieID', (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
-     $push: { FavoriteMovies: req.params.MovieID }
+     $push: { FavouriteMovies: req.params.MovieID }
    },
    { new: true }, // This line makes sure that the updated document is returned
   (err, updatedUser) => {
