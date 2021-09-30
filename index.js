@@ -204,6 +204,35 @@ app.delete('/users/:Username', (req, res) => {
     });
 });
 
+// Add a new movie to the list of movies
+
+app.post('/movies', (req, res) => {
+  Movies.findOne({ Title: req.body.Title })
+    .then((movie) => {
+      if (movie) {
+        return res.status(400).send(req.body.Title + 'already exists');
+      } else {
+        Movies
+          .create({
+            Title: req.body.Title,
+            Description: req.body.Description,
+            Genre: req.body.Genre,
+            Director: req.body.Director
+          })
+          .then((movie) =>{res.status(201).json(movie) })
+        .catch((error) => {
+          console.error(error);
+          res.status(500).send('Error: ' + error);
+        })
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    });
+});
+
+
 
 // Add a movie to a user's list of favourites
 
@@ -221,6 +250,26 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
     }
   });
 });
+
+
+// Remove a movie from a user's list of favourites
+
+app.delete('/users/:Username/movies/:MovieID', (req, res) => {
+  Users.findOneAndUpdate(
+    { Username: req.params.Username },
+    { $pull: { FavouriteMovies: req.params.MovieID } },
+    { new: true }, // This line makes sure that the updated document is returned
+    (err, updatedUser) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+      } else {
+        res.json(updatedUser);
+      }
+    }
+  );
+});
+
 
 
 // Remove a movie from Favourites list by ID
