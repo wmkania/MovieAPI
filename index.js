@@ -20,6 +20,9 @@ app.use(morgan('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+let auth = require('./auth')(app);
+const passport = require('passport');
+require('./passport');
 
 
 // Routes the main Welcome page.
@@ -34,7 +37,7 @@ app.use('/documentation', express.static('public'));
 
 // Gets a list of all movies
 
-app.get('/movies', (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(200).json(movies);
@@ -252,7 +255,7 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
 });
 
 
-// Remove a movie from a user's list of favourites
+// Delete a movie from a user's list of favourites
 
 app.delete('/users/:Username/movies/:MovieID', (req, res) => {
   Users.findOneAndUpdate(
@@ -272,7 +275,6 @@ app.delete('/users/:Username/movies/:MovieID', (req, res) => {
 
 
 
-// Remove a movie from Favourites list by ID
 
 
 // Error handling function.
