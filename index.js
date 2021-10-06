@@ -50,7 +50,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
 
 // Gets a list of all directors
 
-app.get('/directors', (req, res) => {
+app.get('/directors', passport.authenticate('jwt', { session: false }), (req, res) => {
   Directors.find()
     .then((directors) => {
       res.status(201).json(directors);
@@ -63,7 +63,7 @@ app.get('/directors', (req, res) => {
 
 // Gets a list of all genres
 
-app.get('/genres', (req, res) => {
+app.get('/genres', passport.authenticate('jwt', { session: false }), (req, res) => {
   Genres.find()
     .then((genres) => {
       res.status(201).json(genres);
@@ -103,7 +103,7 @@ app.get('/movies/:Title', (req, res) => {
 
 
 // Get director info by name
-app.get('/directors/:Name', (req, res) => {
+app.get('/directors/:Name', passport.authenticate('jwt', { session: false }), (req, res) => {
   Directors.findOne({ Name: req.params.Name})
     .then((director) => {
       res.json(director);
@@ -141,7 +141,7 @@ app.get('/users/:Username', passport.authenticate("jwt", { session: false }), (r
 
 // Add a new user
 
-app.post('/users', passport.authenticate("jwt", { session: false }), (req, res) => {
+app.post('/users', (req, res) => {
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
