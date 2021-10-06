@@ -53,7 +53,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
 app.get('/directors', (req, res) => {
   Directors.find()
     .then((directors) => {
-      res.status(200).json(directors);
+      res.status(201).json(directors);
     })
     .catch((err) => {
       console.error(err);
@@ -66,7 +66,7 @@ app.get('/directors', (req, res) => {
 app.get('/genres', (req, res) => {
   Genres.find()
     .then((genres) => {
-      res.status(200).json(genres);
+      res.status(201).json(genres);
     })
     .catch((err) => {
       console.error(err);
@@ -77,10 +77,10 @@ app.get('/genres', (req, res) => {
 
 // Gets a list of all users
 
-app.get('/users', (req, res) => {
+app.get('/users', passport.authenticate("jwt", { session: false }), (req, res) => {
   Users.find()
     .then((users) => {
-      res.status(200).json(users);
+      res.status(201).json(users);
     })
     .catch((err) => {
       console.error(err);
@@ -128,7 +128,7 @@ app.get('/genres/:Name', (req, res) => {
 
 
 // Get user info by username
-app.get('/users/:Username', (req, res) => {
+app.get('/users/:Username', passport.authenticate("jwt", { session: false }), (req, res) => {
   Users.findOne({ Username: req.params.Username })
     .then((user) => {
       res.json(user);
@@ -141,7 +141,7 @@ app.get('/users/:Username', (req, res) => {
 
 // Add a new user
 
-app.post('/users', (req, res) => {
+app.post('/users', passport.authenticate("jwt", { session: false }), (req, res) => {
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
@@ -198,7 +198,7 @@ app.delete('/users/:Username', (req, res) => {
       if (!user) {
         res.status(409).send(req.params.Username + ' was not found');
       } else {
-        res.status(200).send(req.params.Username + ' was deleted.');
+        res.status().send(req.params.Username + ' was deleted.');
       }
     })
     .catch((err) => {
