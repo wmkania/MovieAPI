@@ -24,8 +24,6 @@ let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
 
-const path = require("path");
-const port = process.env.PORT || 8080;
 
 // Routes the main Welcome page.
 app.get('/', (req, res) => {
