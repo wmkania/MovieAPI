@@ -347,8 +347,8 @@ app.use((err, req, res, next) => {
   res.status(500).send('An unexpected error has occurred.');
 });
 
-const port = process.env.PORT || 8080;
 
-app.listen(port, () => {
-  console.log(`My Movie App listening on port ${port}`);
+const port = process.env.PORT || 8080;
+app.listen(port, '0.0.0.0',() => {
+ console.log('Listening on Port ' + port);
 });
