@@ -340,8 +340,6 @@ app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { se
 
 
 
-
-
 // Error handling function.
 app.use((err, req, res, next) => {
   console.error(err.stack);
