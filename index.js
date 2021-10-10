@@ -14,15 +14,40 @@ const express = require('express');
   morgan = require('morgan');
 const path = require('path');
 const app = express();
+const bcrypt = require('bcrypt');
 
-app.use(morgan('common'));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// ALLOWS ACCESS FOR ALL ORIGINS
+const cors = require('cors');
+app.use(cors());
 
 let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
+
+
+// IF ONLY ALLOWING ACCESS FOR SPECIFIC ORIGINS
+
+//let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+
+//app.use(cors({
+//  origin: (origin, callback) => {
+//    if(!origin) return callback(null, true);
+//    if(allowedOrigins.indexOf(origin) === -1){ // If a specific origin isn’t found on the list of allowed origins
+//      let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
+//return callback(new Error(message ), false);
+//    }
+//return callback(null, true);
+//  }
+//}));
+
+
+//middleware
+
+app.use(morgan('common'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 // Routes the main Welcome page.
