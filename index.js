@@ -166,6 +166,11 @@ app.get('/users/:Username', passport.authenticate("jwt", { session: false }), (r
 // Add a new user
 
 app.post('/users',
+  // Validation logic here for request
+  //you can either use a chain of methods like .not().isEmpty()
+  //which means "opposite of isEmpty" in plain english "is not empty"
+  //or use .isLength({min: 5}) which means
+  //minimum value of 5 characters are only allowed
   [
     check('Username', 'Username is required').isLength({min: 5}),
     check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
@@ -173,6 +178,7 @@ app.post('/users',
     check('Email', 'Email does not appear to be valid').isEmail()
   ], (req, res) => {
 
+  // check the validation object for errors
     let errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -180,10 +186,11 @@ app.post('/users',
     }
 
     let hashedPassword = Users.hashPassword(req.body.Password);
-    Users.findOne({ Username: req.body.Username })
+    Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
       .then((user) => {
         if (user) {
-          return res.status(409).send(req.body.Username + ' already exists');
+          //If the user is found, send a response that it already exists
+          return res.status(400).send(req.body.Username + ' already exists');
         } else {
           Users
             .create({
@@ -207,25 +214,45 @@ app.post('/users',
 
 // Update a user's info, by username
 
-app.put('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Users.findOneAndUpdate({ Username: req.params.Username }, { $set:
-    {
-      Username: req.body.Username,
-      Password: req.body.Password,
-      Email: req.body.Email,
-      Birthday: req.body.Birthday
+app.put('/users/:Username',
+[
+    check("Username", "Username is required").isLength({ min: 5 }),
+    check("Username", "Username contains non alphanumeric characters - not allowed.").isAlphanumeric(),
+    check("Password", "Password is required").not().isEmpty(),
+    check("Email", "Email does not appear to be valid").isEmail(),
+  ],
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    let errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
     }
-  },
-  { new: true }, // This line makes sure that the updated document is returned
-  (err, updatedUser) => {
-    if(err) {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    } else {
-      res.json(updatedUser);
+
+    let hashedPassword = Users.hashPassword(req.body.Password);
+
+    Users.findOneAndUpdate(
+        { Username: req.params.Username },
+        {
+          $set: {
+            Username: req.body.Username,
+            Password: hashedPassword,
+            Email: req.body.Email,
+            Birthday: req.body.Birthday,
+          },
+        },
+        { new: true },
+        (err, updatedUser) => {
+          if (err) {
+            console.error(err);
+            res.status(500).send("Error: " + err);
+          } else {
+            res.json(updatedUser);
+          }
+        }
+      );
     }
-  });
-});
+  );
 
 // Delete an existing user
 
