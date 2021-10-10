@@ -13,7 +13,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const bcrypt = require('bcrypt');
-
+const { check, validationResult } = require('express-validator');
 
 // ALLOWS ACCESS FOR ALL ORIGINS
 const cors = require('cors');
