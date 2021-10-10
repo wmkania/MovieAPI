@@ -6,8 +6,6 @@ const Users = Models.User;
 const Directors = Models.Director;
 const Genres = Models.Genre;
 
-mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
-
 const express = require('express');
   bodyParser = require('body-parser'),
   uuid = require('uuid');
@@ -48,6 +46,7 @@ app.use(morgan('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 // Routes the main Welcome page.
