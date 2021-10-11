@@ -14,6 +14,7 @@ const path = require('path');
 const app = express();
 const bcrypt = require('bcrypt');
 const { check, validationResult } = require('express-validator');
+require('dotenv').config();
 
 // ALLOWS ACCESS FOR ALL ORIGINS
 const cors = require('cors');
