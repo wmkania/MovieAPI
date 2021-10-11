@@ -23,7 +23,12 @@ app.use(cors());
 let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
+console.log(process.env.CONNECTION_URI);
 
+mongoose.connect(process.env.CONNECTION_URI, {
+  useNewURLParser: true,
+  useUnifiedTopology: true,
+});
 
 // IF ONLY ALLOWING ACCESS FOR SPECIFIC ORIGINS
 
@@ -50,10 +55,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
-mongoose.connect(process.env.CONNECTION_URI, {
-  useNewURLParser: true,
-  useUnifiedTopology: true,
-});
+
 
 // Routes the main Welcome page.
 app.get('/', (req, res) => {
