@@ -23,12 +23,7 @@ app.use(cors());
 let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
-console.log(process.env.CONNECTION_URI);
 
-mongoose.connect(process.env.CONNECTION_URI, {
-  useNewURLParser: true,
-  useUnifiedTopology: true,
-});
 
 // IF ONLY ALLOWING ACCESS FOR SPECIFIC ORIGINS
 
@@ -53,7 +48,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-//mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 
@@ -312,20 +307,25 @@ app.post('/movies', passport.authenticate('jwt', { session: false }), (req, res)
 
 // Add a movie to a user's list of favourites
 
-app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Users.findOneAndUpdate({ Username: req.params.Username }, {
-     $push: { FavouriteMovies: req.params.MovieID }
-   },
-   { new: true }, // This line makes sure that the updated document is returned
-  (err, updatedUser) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    } else {
-      res.json(updatedUser);
-    }
-  });
-});
+app.post(
+  "/users/:Username/movies/:MovieID",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Users.findOneAndUpdate(
+      { Username: req.params.Username },
+      { $push: { FavouriteMovies: req.params.MovieID } },
+      { new: true },
+      (err, updatedUser) => {
+        if (err) {
+          console.error(err);
+          res.status(500).send("Error: " + err);
+        } else {
+          res.json(updatedUser);
+        }
+      }
+    );
+  }
+);
 
 
 // Delete a movie from a user's list of favourites
