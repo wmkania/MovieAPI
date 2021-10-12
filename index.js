@@ -260,20 +260,24 @@ app.put('/users/:Username',
 
 // Delete an existing user
 
-app.delete('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Users.findOneAndRemove({ Username: req.params.Username })
-    .then((user) => {
-      if (!user) {
-        res.status(409).send(req.params.Username + ' was not found');
-      } else {
-        res.status().send(req.params.Username + ' was deleted.');
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    });
-});
+app.delete(
+  "/users/:Username",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Users.findOneAndRemove({ Username: req.params.Username })
+      .then((user) => {
+        if (!user) {
+          res.status(404).send(req.params.Username + " was not found");
+        } else {
+          res.status(201).send(req.params.Username + " was deleted.");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  }
+);
 
 // Add a new movie to the list of movies
 
@@ -313,7 +317,7 @@ app.post(
   (req, res) => {
     Users.findOneAndUpdate(
       { Username: req.params.Username },
-      { $push: { FavouriteMovies: req.params.MovieID } },
+      { $push: { FavoriteMovies: req.params.MovieID } },
       { new: true },
       (err, updatedUser) => {
         if (err) {
@@ -328,12 +332,13 @@ app.post(
 );
 
 
+
 // Delete a movie from a user's list of favourites
 
 app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate(
     { Username: req.params.Username },
-    { $pull: { FavouriteMovies: req.params.MovieID } },
+    { $pull: { FavoriteMovies: req.params.MovieID } },
     { new: true }, // This line makes sure that the updated document is returned
     (err, updatedUser) => {
       if (err) {
