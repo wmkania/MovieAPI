@@ -14,12 +14,7 @@
 "Imagepath":"https://www.imdb.com/title/tt5109280/mediaviewer/rm2414269697/?ref_=tt_ov_i",
 "Featured":true}
 
-{"_id":{"$oid":"6128e8f1152a9c8e7ecca52f"},"Title":"Luca",
-"Description":"Luca is a 2021 American computer-animated coming-of-age fantasy film. Set on the Italian Riviera in the 1950–1960s, the film centers on Luca Paguro, a sea monster boy with the ability to assume human form while on land, who explores the town of Portorosso with his new best friend, Alberto Scorfano, experiencing a life-changing summer adventure.",
-"Genre":{"Name":"Fantasy","Description":"Fantasy films are films that belong to the fantasy genre with fantastic themes, usually magic, supernatural events, mythology, folklore, or exotic fantasy worlds."},
-"Director":{"Name":"Enrico Casarosa","Bio":"Enrico Casarosa (born October 19, 1971) is an Italian storyboard artist, film director, and writer who works at Pixar. In 2012, he was nominated for an Academy Award for the animated short film La Luna.","Birth":"1971"},
-"Imagepath":"https://www.imdb.com/title/tt12801262/mediaviewer/rm3522740225/?ref_=tt_ov_i","
-Featured":true}
+{"_id":{"$oid":"6128e8f1152a9c8e7ecca52f"},"Title":"Luca","Description":"Luca is a 2021 American computer-animated coming-of-age fantasy film. Set on the Italian Riviera in the 1950–1960s, the film centers on Luca Paguro, a sea monster boy with the ability to assume human form while on land, who explores the town of Portorosso with his new best friend, Alberto Scorfano, experiencing a life-changing summer adventure.","Genre":{"Name":"Fantasy","Description":"Fantasy films are films that belong to the fantasy genre with fantastic themes, usually magic, supernatural events, mythology, folklore, or exotic fantasy worlds."},"Director":{"Name":"Enrico Casarosa","Bio":"Enrico Casarosa (born October 19, 1971) is an Italian storyboard artist, film director, and writer who works at Pixar. In 2012, he was nominated for an Academy Award for the animated short film La Luna.","Birth":"1971"},"Imagepath":"https://www.imdb.com/title/tt12801262/mediaviewer/rm3522740225/?ref_=tt_ov_i","Featured":true}
 
 {"_id":{"$oid":"6128eb4f152a9c8e7ecca530"},
 "Title":"Coco",
