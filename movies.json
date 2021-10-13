@@ -1,10 +1,78 @@
-{"_id":1.0,"Title":"The Shawshank Redemption","Description":"Andy Dufresne, a successful banker, is arrested for the murders of his wife and her lover, and is sentenced to life imprisonment at the Shawshank prison. He becomes the most unconventional prisoner.","Genre":{"Name":"drama","Description":"The drama genre features stories with high stakes and a lot of conflicts."},"Director":{"Name":"Frank Darabont","Bio":"French-American film director, screenwriter and producer of Hungarian descent.","Birth":"1959","Death":"0"},"ImagePath":"shawshank.png","Featured":true}
-{"_id":2.0,"Title":"The Godfather","Description":"Don Vito Corleone, head of a mafia family, decides to hand over his empire to his youngest son Michael.UPDATED DESCRIPTION.","Genre":{"Name":"drama","Description":"The drama genre features stories with high stakes and a lot of conflicts."},"Director":{"Name":"Francis Coppola","Bio":"Changed director bio here.","Birth":"1939","Death":"0"},"ImagePath":"godfather.png","Featured":true}
-{"_id":3.0,"Title":"Malena","Description":"In Sicily, during the Second World War, a teenage boy gets smitten by Malena, a sensual woman living in a small town.","Genre":{"Name":"drama","Description":"The drama genre features stories with high stakes and a lot of conflicts."},"Director":{"Name":"Giuseppe Tornatore","Bio":"Italian film director and screenwriter.","Birth":"1956","Death":"0"},"ImagePath":"malena.png","Featured":true}
-{"_id":4.0,"Title":"The Shining","Description":"Jack and his family move into an isolated hotel with a violent past.","Genre":{"Name":"horror","Description":"Horror is a genre of fiction which is intended to, or has the capacity to frighten, scare, disgust, or startle its viewers."},"Director":{"Name":"Stanley Kubrick","Bio":"American film director, producer, screenwriter, and photographer.","Birth":"1929","Death":"1999"},"ImagePath":"shining.png","Featured":true}
-{"_id":5.0,"Title":"Dreamcatcher","Description":"Jonesy, Henry, Pete and Beaver have a special secret and are equipped to communicate using telepathy.","Genre":{"Name":"horror","Description":"Horror is a genre of fiction which is intended to, or has the capacity to frighten, scare, disgust, or startle its viewers."},"Director":{"Name":"Lawrence Kasdan","Bio":"American director, screenwriter, and producer.","Birth":"1949","Death":"0"},"ImagePath":"dreamcatcher.png","Featured":true}
-{"_id":6.0,"Title":"Pulp Fiction","Description":"In the realm of underworld, a series of incidents intertwines the lives of two Los Angeles mobsters and small-time criminals.","Genre":{"Name":"comedy","Description":"A comedy film is a category of film in which the main emphasis is on humor."},"Director":{"Name":"Quentin Tarantino","Bio":"American film director, screenwriter, producer, author, film critic, and actor.","Birth":"1963","Death":"0"},"ImagePath":"pulpfiction.png","Featured":false}
-{"_id":7.0,"Title":"Inception","Description":"Cobb steals information from his targets by entering their dreams.","Genre":{"Name":"thriller","Description":"Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety."},"Director":{"Name":"Christopher Nolan","Bio":"British-American film director, producer, and screenwriter.","Birth":"1970","Death":"0"},"ImagePath":"inception.png","Featured":false}
-{"_id":8.0,"Title":"Cinema Paradiso","Description":"Young Salvatore Di Vita discovers the perfect escape from life in his war-torn Sicilian village: the Cinema Paradiso movie house, where projectionist Alfredo instills in the boy a deep love of films.","Genre":{"Name":"drama","Description":"The drama genre features stories with high stakes and a lot of conflicts."},"Director":{"Name":"Giuseppe Tornatore","Bio":"Italian film director and screenwriter.","Birth":"1956","Death":"0"},"ImagePath":"cinema.png","Featured":false}
-{"_id":9.0,"Title":"Alien","Description":"The crew of a spacecraft, Nostromo, intercept a distress signal from a planet and set out to investigate it.","Genre":{"Name":"science fiction","Description":"Science fiction is a genre of speculative fiction that typically deals with imaginative and futuristic concepts."},"Director":{"Name":"Ridley Scott","Bio":"English film director and producer.","Birth":"1937","Death":"0"},"ImagePath":"alien.png","Featured":false}
-{"_id":10.0,"Title":"Titanic","Description":"Seventeen-year-old Rose hails from an aristocratic family and is set to be married.","Genre":{"Name":"drama","Description":"The drama genre features stories with high stakes and a lot of conflicts."},"Director":{"Name":"James Cameron","Bio":"Canadian filmmaker best known for making science fiction and epic films.","Birth":"1954","Death":"0"},"ImagePath":"titanic.png","Featured":false}
+{"_id":{"$oid":"6128e2d7152a9c8e7ecca52d"},
+"Title":"The terminal",
+"Description":"The film is about an Eastern European man who is stuck in New York's John F. Kennedy Airport terminal when he is denied entry into the United States and at the same time is unable to return to his native country because of a military coup.",
+"Genre":{"Name":"Comedy","Description":"A comedy film is a category of film in which the main emphasis is on humor. These films are designed to make the audience laugh through amusement and most often work by exaggerating characteristics for humorous effect."},
+"Director":{"Name":"Steven Spielberg","Bio":"Steven Spielberg is an American film director, producer, and screenwriter. He began his career in the New Hollywood era, and is one of the most commercially successful directors in history. Spielberg is the recipient of various accolades, including two Academy Awards for Best Director, a Kennedy Center honor, and a Cecil B. DeMille Award.","Birth":"1946"},
+"Imagepath":"https://www.imdb.com/title/tt0362227/mediaviewer/rm3088158464/?ref_=tt_ov_i",
+"Featured":true}
+
+{"_id":{"$oid":"6128e72c152a9c8e7ecca52e"},
+"Title":"Raya and the Last Dragon",
+"Description":"Raya and the Last Dragon is a 2021 American computer-animated fantasy action-adventure film. The plot follows a warrior princess who searches for the fabled last dragon, hoping to restore the dragon gem that would banish the evil spirits known as the Druun from the land of Kumandra.",
+"Genre":{"Name":"Fantasy","Description":"Fantasy films are films that belong to the fantasy genre with fantastic themes, usually magic, supernatural events, mythology, folklore, or exotic fantasy worlds. "},
+"Director":{"Name":"Don Hall","Bio":"Don Hall is an American film director, writer, and voice actor at Walt Disney Animation Studios. He is known for co-directing: Winnie the Pooh (2011, based on the novel by A.A. Milne), Big Hero 6 (2014, inspired by the Marvel's comics of the same name), Moana (2016, along with Ron Clements and John Musker), and Raya and the Last Dragon. Big Hero 6 won the Oscar for Best Animated Feature in 2015.","Birth":"1969"},
+"Imagepath":"https://www.imdb.com/title/tt5109280/mediaviewer/rm2414269697/?ref_=tt_ov_i",
+"Featured":true}
+
+{"_id":{"$oid":"6128e8f1152a9c8e7ecca52f"},"Title":"Luca",
+"Description":"Luca is a 2021 American computer-animated coming-of-age fantasy film. Set on the Italian Riviera in the 1950–1960s, the film centers on Luca Paguro, a sea monster boy with the ability to assume human form while on land, who explores the town of Portorosso with his new best friend, Alberto Scorfano, experiencing a life-changing summer adventure.",
+"Genre":{"Name":"Fantasy","Description":"Fantasy films are films that belong to the fantasy genre with fantastic themes, usually magic, supernatural events, mythology, folklore, or exotic fantasy worlds."},
+"Director":{"Name":"Enrico Casarosa","Bio":"Enrico Casarosa (born October 19, 1971) is an Italian storyboard artist, film director, and writer who works at Pixar. In 2012, he was nominated for an Academy Award for the animated short film La Luna.","Birth":"1971"},
+"Imagepath":"https://www.imdb.com/title/tt12801262/mediaviewer/rm3522740225/?ref_=tt_ov_i","
+Featured":true}
+
+{"_id":{"$oid":"6128eb4f152a9c8e7ecca530"},
+"Title":"Coco",
+"Description":"The story follows a 12-year-old boy named Miguel who is accidentally transported to the Land of the Dead, where he seeks the help of his deceased musician great-great-grandfather to return him to his family among the living and to reverse his family's ban on music.",
+"Genre":{"Name":"Adventure","Description":"Adventure films are a genre of film whose plots feature elements of travel. They typically involve protagonists who must leave their home or place of comfort and go to far away lands to fulfill a goal. Settings play an important role in adventure films, sometimes as big as the characters themselves."},
+"Director":{"Name":"Lee Unkrich","Bio":"Lee Unkrich is an American director, film editor, screenwriter, and animator. He was a longtime member of the creative team at Pixar, where he started in 1994 as a film editor. He later began directing, first as co-director of Toy Story 2.","Birth":"1967"},
+"Imagepath":"https://www.imdb.com/title/tt2380307/mediaviewer/rm585455872/?ref_=tt_ov_i",
+"Featured":true}
+
+
+{"_id":{"$oid":"6128ec62152a9c8e7ecca531"},
+"Title":"Abominable",
+"Description":"The film follows a teenage girl named Yi, who encounters a young Yeti on the roof of her apartment building in Shanghai, names him Everest and embarks on an epic quest to reunite the magical creature with his family at the highest point on Earth along with her mischievous friends Jin and Peng, but the trio of friends will have to stay one-step ahead of Burnish, a wealthy man intent on capturing a Yeti, and zoologist Dr. Zara to help Everest get home.",
+"Genre":{"Name":"Fantasy","Description":"Fantasy films are films that belong to the fantasy genre with fantastic themes, usually magic, supernatural events, mythology, folklore, or exotic fantasy worlds. "},
+"Director":{"Name":"Jill Culton","Bio":"Jill Culton is an American animator and director. With her directorial debut on Sony's first animated film, Open Season, she became the first female principal director of a big budget, computer-animated feature. Previously, she studied at the Character Animation program at the California Institute of the Arts, where she later taught animation.","Birth":"1973"},
+"Imagepath":"https://www.imdb.com/title/tt6324278/mediaviewer/rm264211201/?ref_=tt_ov_i",
+"Featured":true}
+
+{"_id":{"$oid":"6128efef152a9c8e7ecca534"},
+"Title":"The Mauritanian",
+"Description":"The film is based on the true story of Mohamedou Ould Slahi, a Mauritanian man who was held for fourteen years (from 2002 to 2016) without charge in the Guantanamo Bay detention camp, a United States military prison.",
+"Genre":{"Name":"Thriller","Description":"Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety."},
+"Director":{"Name":"Kevin Macdonald","Bio":"Kevin Macdonald is a Scottish director. His films include One Day in September (1999), a documentary about the 1972 murder of 11 Israeli athletes, which won him the Academy Award for Best Documentary Feature, the climbing documentary Touching the Void (2003), the drama The Last King of Scotland (2006), the political thriller State of Play (2009), the Bob Marley documentary Marley (2012), the post-apocalyptic drama How I Live Now (2013), the thriller Black Sea (2014), the Whitney Houston documentary Whitney (2018), and the legal drama film The Mauritanian (2021).","Birth":"1967"},
+"Imagepath":"https://www.imdb.com/title/tt4761112/mediaviewer/rm1533860865/?ref_=tt_ov_i",
+"Featured":true}
+
+{"_id":{"$oid":"6129086720c07b459bdc67e3"},
+"Title":"Breakfast at Tiffany's",
+"Description":"Breakfast at Tiffany's is a 1961 American romantic comedy film directed by Blake Edwards, written by George Axelrod, adapted from Truman Capote's 1958 novella of the same name, and starring Audrey Hepburn as Holly Golightly, a naïve, eccentric café society girl who falls in love with a struggling writer (George Peppard).",
+"Genre":{"Name":"Romance","Description":"Romance films or romance movies are romantic love stories recorded in visual media for broadcast in theaters and on TV that focus on passion, emotion, and the affectionate romantic involvement of the main characters and the journey that their love takes them through dating, courtship or marriage."},
+"Director":{"Name":"Blake Edwards","Bio":"Blake Edwards was an American actor, film director, producer and screenwriter. Edwards began his career in the 1940s as an actor, but he soon began writing screenplays and radio scripts before turning to producing and directing in television and films.","Birth":"1922","Death":"2010"},
+"Imagepath":"https://www.imdb.com/title/tt0054698/mediaviewer/rm3522705920/?ref_=tt_ov_i",
+"Featured":true}
+
+{"_id":{"$oid":"61290a5f20c07b459bdc67e4"},
+"Title":"Eat Pray Love",
+"Description":"A married woman realizes how unhappy her marriage really is, and that her life needs to go in a different direction. After a painful divorce, she takes off on a round-the-world journey to 'find herself'.",
+"Genre":{"Name":"Romance","Description":"Romance films or romance movies are romantic love stories recorded in visual media for broadcast in theaters and on TV that focus on passion, emotion, and the affectionate romantic involvement of the main characters and the journey that their love takes them through dating, courtship or marriage."},
+"Director":{"Name":"Ryan Murphy","Bio":"Ryan Murphy is an American television writer, director, and producer. Murphy has received six Primetime Emmy Awards from 32 nominations, a Tony Award from two nominations, and two Grammy Award nominations. He has often been cited as 'the most powerful man' in modern television, including having signed the largest development deal in television history with Netflix. Murphy is noted for having created a shift in inclusive storytelling that 'brought marginalised characters to the masses'.","Birth":"1965"},
+"Imagepath":"https://www.imdb.com/title/tt0879870/mediaviewer/rm2612429312/?ref_=tt_ov_i",
+"Featured":true}
+
+{"_id":{"$oid":"612939d220c07b459bdc67ea"},
+"Title":"The Intern",
+"Description":"The plot follows a 70-year-old widower who becomes a senior intern at an online fashion website, where he forms an unlikely friendship with the company's workaholic CEO.",
+"Genre":{"Name":"Comedy","Description":"A comedy film is a category of film in which the main emphasis is on humor. These films are designed to make the audience laugh through amusement and most often work by exaggerating characteristics for humorous effect."},
+"Director":{"Name":"Nancy Meyers","Bio":"Nancy Meyers was born on December 8, 1949 in Philadelphia, Pennsylvania, USA as Nancy Jane Meyers. She is a writer and producer, known for It's Complicated (2009), Something's Gotta Give (2003) and The Holiday (2006).","Birth":"1949"},
+"Imagepath":"https://www.imdb.com/title/tt2361509/mediaviewer/rm2122968832/?ref_=tt_ov_i",
+"Featured":true}
+
+{"_id":{"$oid":"61293a2a20c07b459bdc67eb"},
+"Title":"The Holiday","Description":"It was filmed in both California and England, and stars Kate Winslet and Cameron Diaz as Iris and Amanda, two lovelorn women from opposite sides of the Atlantic Ocean, who arrange a home exchange to escape heartbreak during the Christmas and holiday season. ",
+"Genre":{"Name":"Romance","Description":"Romance films or romance movies are romantic love stories recorded in visual media for broadcast in theaters and on TV that focus on passion, emotion, and the affectionate romantic involvement of the main characters and the journey that their love takes them through dating, courtship or marriage."},
+"Director":{"Name":"Nancy Meyers","Bio":"Nancy Meyers was born on December 8, 1949 in Philadelphia, Pennsylvania, USA as Nancy Jane Meyers. She is a writer and producer, known for It's Complicated (2009), Something's Gotta Give (2003) and The Holiday (2006).","Birth":"1949"},
+"Imagepath":"https://www.imdb.com/title/tt0457939/mediaviewer/rm3712915712/?ref_=tt_ov_i",
+"Featured":true}
